@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu
 
 ### Image building configuration ###
 # === CURRENT BUILDING USER IS ROOT === #
