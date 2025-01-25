@@ -35,13 +35,3 @@ WORKDIR /workspace
 
 # Include .bashrc to configure Bash
 COPY .bashrc /home/$USERNAME/.bashrc
-
-# Include and configure entrypoint to run at start of the container
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
-
-# Set up default entrypoint passed commands
-CMD ["bash"]
-
-#Use "docker build -f .devcontainer/Dockerfile -t  ContaineurExo7 ." inside "Exercice 7"
-# USE "chmod +x entrypoint.sh" to set permissions !
