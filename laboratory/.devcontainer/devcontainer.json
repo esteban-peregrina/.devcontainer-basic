@@ -1,0 +1,23 @@
+{
+    "name": "ROS2 (Dev Environment)",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "ros_machine_1", // Default to Machine 1
+    "workspaceFolder": "/workspace", // Where VSCode's open the new terminal inside the container
+    "postCreateCommand": "python3 -m venv venv", 
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-vscode.cpptools",
+                "ms-iot.vscode-ros",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}
+  

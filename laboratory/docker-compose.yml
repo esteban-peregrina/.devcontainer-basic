@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  ros_machine_1:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    container_name: ros_machine_1
+    volumes:
+      - ./machine_1_workspace:/workspace  # Machine 1 workspace
+      - ./shared_workspace:/workspace/shared
+    networks:
+      - ros_network
+    environment:
+      - ROS_DOMAIN_ID=5
+      - DISPLAY=host.docker.internal:0  # For GUI apps
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    tty: true
+    stdin_open: true
+
+  ros_machine_2:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    container_name: ros_machine_2
+    volumes:
+      - ./machine_2_workspace:/workspace # Machine 2 workspace
+      - ./shared_workspace:/workspace/shared
+    networks:
+      - ros_network
+    environment:
+      - ROS_DOMAIN_ID=10
+      - DISPLAY=host.docker.internal:0  # For GUI apps
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    tty: true
+    stdin_open: true
+
+networks:
+  ros_network:
+    driver: bridge
