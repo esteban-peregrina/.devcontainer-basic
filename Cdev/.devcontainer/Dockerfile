@@ -32,6 +32,3 @@ USER $USERNAME
 
 # Change current working directory to workspace (creates it)
 WORKDIR /workspace
-
-# Include .bashrc to configure Bash
-COPY .bashrc /home/$USERNAME/.bashrc
